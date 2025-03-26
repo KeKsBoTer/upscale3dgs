@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lightweight Gradient-Aware Upscaling of 3D Gaussian Splatting Images</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/jpg" href="./static/img/icon.png">
+    <link rel="stylesheet" href="static/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.min.css">
+    <script src="static/js/all.min.js"></script>
+
+
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/js/script.js"></script>
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+                <a class="navbar-item" href="https://www.cs.cit.tum.de/cg/people/niedermayr/">
+                    <span class="icon">
+                        <i class="fas fa-home"></i>
+                    </span>
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More Research
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="https://www.cs.cit.tum.de/cg/research/publications/">
+                            TUM Computer Graphics and Visualization
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 is-size-3-mobile publication-title">Lightweight Gradient-Aware Upscaling of 3D Gaussian Splatting Images</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://www.cs.cit.tum.de/en/cg/people/niedermayr/">Simon Niedermayr</a>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://chrismile.net/"> Christoph Neuhauser</a>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://www.cs.cit.tum.de/en/cg/people/westermann/">Rüdiger Westermann</a>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"></span>Technical University of Munich</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <!-- <span class="link-block">
+                                    <a href="https://arxiv.org/pdf/2404.11285.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span> -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2503.14171"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="" class="external-link button  is-normal is-rounded is-dark" disabled>
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser is-dark" style="background-color: black; min-height:300px">
+        <div class="hero-body" style="padding: 0;">
+            <div class="container" style="overflow-x: auto; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <img loading="lazy" style="max-width: unset; object-position:center; min-height: 500px;" src="static/img/teaser_project_page.svg">
+                <p style="text-align: center; font-size: 1.5rem; margin-bottom: 1rem;"><strong>TLDR:</strong> We utilize analytical image gradients to upscale 3DGS renders to improve rendering and reconstruction speed.</p> 
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop is-mobile">
+            <!-- Abstract. -->
+            <div class="columns is-centered">
+                <div class="column ">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        We introduce an image upscaling technique tailored for 3D Gaussian Splatting (3DGS) on lightweight GPUs. Compared to 3DGS, it achieves significantly higher rendering speeds and reduces artifacts commonly observed in 3DGS reconstructions. Our technique upscales low-resolution 3DGS renderings with a marginal increase in cost by directly leveraging the analytical image gradients of Gaussians for gradient-based bicubic spline interpolation. The technique is agnostic to the specific 3DGS implementation, achieving novel view synthesis at rates 3x-4x higher than the baseline implementation. Through extensive experiments on multiple datasets, we showcase the performance improvements and high reconstruction fidelity attainable with gradient-aware upscaling of 3DGS images. We further demonstrate the integration of gradient-aware upscaling into the gradient-based optimization of a 3DGS model and analyze its effects on reconstruction quality and performance. 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop is-mobile">
+            <div class="is-centered" style="margin-bottom: 3rem;">
+                <h2 class="title is-3">Motivational Example</h2>
+            </div>
+            <p style="margin-bottom:1em;">
+                Traditional <a href="https://en.wikipedia.org/wiki/Bicubic_interpolation">bicubic interpolation</a> often inaccurately reconstructs signals due to its reliance on finite difference approximations of gradients, leading to artifacts. Enhancing interpolation by incorporating analytical gradients at each sample point allows for a more precise spline fit. This approach leverages the exact rate of change of the signal, resulting in a reconstruction that closely mirrors the original, effectively capturing subtle variations and reducing interpolation errors.​
+            </p>
+            <br>
+            <div class="is-centered" style="display: flex; justify-content: center;">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <img style="height: 100%;" src="static/img/spline1d/spline_finite.svg">
+                    <p style="margin-top:1rem">Finite Differences</p>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <img style="height: 100%;" src="static/img/spline1d/spline_analytical.svg">
+                    <p style="margin-top:1rem">Analytical Gradients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop is-mobile">
+            <div class="is-centered" style="margin-bottom: 3rem;">
+                <h2 class="title is-3">Method</h2>
+            </div>
+            <p style="margin-bottom:1em;">
+                Bicubic interpolation / upscaling fits a bicubic polynomial through a set of neighboring pixels using finite differences to estimate the color gradients. We replace this gradient estimation with the real analytical gradients of the 2D Gaussians. The exact image gradients allow for a more accurate interpolation and therefore image upscaling. 
+            </p>
+            <p>
+                Since the upscaling operation is fully differentiable we can include the upscaling in the reconstruction pipeline and therefore reducing the computational load of the rasterization step and the whole reconstruction process.
+            </p>
+            <br>
+            <div class="is-centered ">
+                <img loading="lazy" src="static/img/pipeline.svg">
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="section">
+        <div class="container is-max-desktop is-mobile">
+            <div class="is-centered" style="margin-bottom: 3rem;">
+                <h2 class="title is-3">Interactive Web Demo for 2D Images</h2>
+                <p>This interactive demo shows our upscaling method (and others) applied to 2D images. The image is a Gaussian Mixture Model that was reconstructed with an approach similar to <a href="https://github.com/Xinjie-Q/GaussianImage">GaussianImage</a>.
+                The images are rendered at a lower resolution (Upscale Factor) and then upscaled with the selected method to match the screen resolution.
+                <br> <strong>Note:</strong> The improvement over bicubic upscaling for 2D images is not as great as for 3DGS, since the number of Gaussians contributing to each pixel is much lower. </p>
+            </div>
+            <div>
+                <iframe loading="lazy" width="100%" height="650px" src="https://keksboter.github.io/gaussian_image/viewer.html?file=gaussian_images/div2k/0841/model_f16.npz"></iframe>
+                <div style="text-align: center;">
+                    <a href="https://keksboter.github.io/gaussian_image/"><p>Explore the Demo for the entire DIV2K and Kodak dataset</p></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser is-light">
+        <div class="hero-body">
+            <div class="container">
+                <div class="is-centered">
+                    <h2 class="title is-3">Video Results</h2>
+                </div>
+                <div>
+                    <p>Video results for 8x upscaling with different methods. NinaSR1 is a Deep Learning upscaler from <a href="https://github.com/Coloquinte/torchSR" style="color:blue">TorchSR</a>.</p>
+                </div>
+                <div id="results-carousel" class="carousel results-carousel">
+                    <div class="item">
+                        <p>Bicubic</p>
+                        <video poster="./static/videos/thumbnails/upscaline_bicubic.jpg" id="bonsai" autoplay controls muted loop
+                            playsinline height="100%">
+                            <source src="./static/videos/avc1/upscale_bicubic.mp4" type="video/mp4; codecs=avc1.64001E">
+                            <!-- <source src="./static/videos/av1/brain_2.mp4" type="video/mp4; codecs=av1"> -->
+                        </video>
+                    </div>
+                    <div class="item ">
+                        <p>Spline (Ours)</p>
+                        <video poster="./static/videos/thumbnails/upscale_spline.jpg" id="bicycle" autoplay controls muted
+                            loop playsinline height="100%">
+                            <source src="./static/videos/avc1/upscale_spline.mp4" type="video/mp4; codecs=avc1.64001E">
+                            <!-- <source src="./static/videos/av1/kidney_2.mp4" type="video/mp4; codecs=av1"> -->
+                        </video>
+                    </div>
+                    <div class="item ">
+                        <p>NinaSR1</p>
+                        <video poster="./static/videos/thumbnails/upscale_torchsr.jpg" id="garden" autoplay controls muted
+                            loop playsinline height="100%">
+                            <source src="./static/videos/avc1/upscale_torchsr.mp4" type="video/mp4; codecs=avc1.64001E">
+                            <!-- <source src="./static/videos/av1/whole_body_3.mp4" type="video/mp4; codecs=av1"> -->
+                        </video>
+                    </div>
+                </div>
+                <div class="is-centered">
+                    <p style="text-align: center;"><strong>Note:</strong> View the videos in full screen to see the differences between the methods.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@misc{niedermayr2025upscaling3dgs,
+    title={Lightweight Gradient-Aware Upscaling of 3D Gaussian Splatting Images}, 
+    author={Simon Niedermayr and Christoph Neuhauser Rüdiger Westermann},
+    year={2025},
+    eprint={2503.14171},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV},
+    url={https://arxiv.org/abs/2503.14171}, 
+}
+</code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="https://github.com/KeKsBoTeR" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            Website source code inspired from <a href="https://keunhong.com">Keunhong Park</a>'s <a
+                                href="https://github.com/nerfies/nerfies.github.io">Nerfies website</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
