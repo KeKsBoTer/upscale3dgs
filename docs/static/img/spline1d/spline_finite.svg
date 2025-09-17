@@ -12,6 +12,14 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+   <style>
+      path {
+         text: black;
+      }
+      @media (prefers-color-scheme: dark) {
+         text { fill: white; }
+      }
+   </style>
   <defs
      id="defs6">
     <clipPath
@@ -108,7 +116,7 @@
   </defs>
   <sodipodi:namedview
      id="namedview4"
-     pagecolor="#ffffff"
+     pagecolor="transparent"
      bordercolor="#000000"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
@@ -121,14 +129,6 @@
      inkscape:groupmode="layer"
      inkscape:label="Page 1"
      transform="matrix(1.3333333,0,0,-1.3333333,0,240.95999)">
-    <path
-       d="M 0,0 H 572.4 V 180.72 H 0 Z"
-       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       id="path12" />
-    <path
-       d="m 7.2,7.2 h 558 V 173.52 H 7.2 Z"
-       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       id="path14" />
     <g
        id="g16">
       <g

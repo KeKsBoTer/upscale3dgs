@@ -12,6 +12,14 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+    <style>
+        path {
+            text: black;
+        }
+        @media (prefers-color-scheme: dark) {
+            text { fill: white; }
+        }
+    </style>
   <defs
      id="defs6">
     <clipPath
@@ -121,14 +129,6 @@
      inkscape:groupmode="layer"
      inkscape:label="Page 1"
      transform="matrix(1.3333333,0,0,-1.3333333,0,266.89066)">
-    <path
-       d="M 0,0 H 572.4 V 200.168 H 0 Z"
-       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       id="path12" />
-    <path
-       d="m 7.2,26.648 h 558 v 166.32 H 7.2 Z"
-       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       id="path14" />
     <g
        id="g16">
       <g
@@ -340,7 +340,7 @@
         <text
            xml:space="preserve"
            transform="scale(1,-1)"
-           style="font-variant:normal;font-weight:normal;font-size:11px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#262626;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="font-variant:normal;font-weight:normal;font-size:11px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="text182"><tspan
              x="0 5.7309999 8.7889996 15.774 22.747999 29.490999"
              y="0"
@@ -357,7 +357,7 @@
         <text
            xml:space="preserve"
            transform="scale(1,-1)"
-           style="font-variant:normal;font-weight:normal;font-size:11px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#262626;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="font-variant:normal;font-weight:normal;font-size:11px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="text190"><tspan
              x="0 5.7309999 12.474 23.188 30.173 33.230999 39.995998"
              y="0"
@@ -374,7 +374,7 @@
         <text
            xml:space="preserve"
            transform="scale(1,-1)"
-           style="font-variant:normal;font-weight:normal;font-size:11px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#262626;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="font-variant:normal;font-weight:normal;font-size:11px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="text198"><tspan
              x="0 3.0580001 10.032 14.344 21.108999 25.629999 32.615002 39.347 42.404999 49.147999 53.459999 56.518002 63.25"
              y="0"
@@ -391,7 +391,7 @@
         <text
            xml:space="preserve"
            transform="scale(1,-1)"
-           style="font-variant:normal;font-weight:normal;font-size:11px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill:#262626;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="font-variant:normal;font-weight:normal;font-size:11px;font-family:'DejaVu Sans';-inkscape-font-specification:DejaVuSans;writing-mode:lr-tb;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="text206"><tspan
              x="0 6.9850001 11.506 18.249001 25.233999 28.292 35.056999 42.030998 46.342999"
              y="0"

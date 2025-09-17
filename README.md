@@ -27,10 +27,8 @@ If you find our work useful, please cite:
     title={Lightweight Gradient-Aware Upscaling of 3D Gaussian Splatting Images}, 
     author={Simon Niedermayr and Christoph Neuhauser Rüdiger Westermann},
     year={2025},
-    eprint={2503.14171},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV},
-    url={https://arxiv.org/abs/2503.14171}, 
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    year = {2025},
 }
 ```
 

@@ -13,7 +13,6 @@
 
 
     <link rel="stylesheet" href="static/css/style.css">
-    <script src="static/js/script.js"></script>
 </head>
 
 <body>
@@ -55,6 +54,8 @@
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
                         <h1 class="title is-1 is-size-3-mobile publication-title">Lightweight Gradient-Aware Upscaling of 3D Gaussian Splatting Images</h1>
+                        
+                        <h2 class="subtitle is-4 opacity-1" style="margin-top: 1rem;opacity:0.7">ICCV 2025</h2>
                         <div class="is-size-5 publication-authors">
                             <span class="author-block">
                                 <a href="https://www.cs.cit.tum.de/en/cg/people/niedermayr/">Simon Niedermayr</a>,
@@ -72,7 +73,7 @@
                         </div>
 
                         <div class="column has-text-centered">
-                            <div class="publication-links">
+                            <div class="publication-links" style="gap:0.5rem">
                                 <!-- PDF Link. -->
                                 <!-- <span class="link-block">
                                     <a href="https://arxiv.org/pdf/2404.11285.pdf"
@@ -91,9 +92,18 @@
                                         </span>
                                         <span>arXiv</span>
                                     </a>
+                                </span> 
+                                <span class="link-block">
+                                    <a href="#demo"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-gamepad"></i>
+                                        </span>
+                                        <span>2D Demo</span>
+                                    </a>
                                 </span>
                                 <span class="link-block">
-                                    <a href="" class="external-link button  is-normal is-rounded is-dark" disabled>
+                                    <a href="https://github.com/KeKsBoTer/upscale3dgs" class="external-link button  is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fab fa-github"></i>
                                         </span>
@@ -112,8 +122,9 @@
     <section class="hero teaser is-dark" style="background-color: black; min-height:300px">
         <div class="hero-body" style="padding: 0;">
             <div class="container" style="overflow-x: auto; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                <img loading="lazy" style="max-width: unset; object-position:center; min-height: 500px;" src="static/img/teaser_project_page.svg">
-                <p style="text-align: center; font-size: 1.5rem; margin-bottom: 1rem;"><strong>TLDR:</strong> We utilize analytical image gradients to upscale 3DGS renders to improve rendering and reconstruction speed.</p> 
+                <img loading="lazy" id="teaser-wide" class="teaser-image" src="static/img/teaser_project_page.svg">
+                <img loading="lazy" id="teaser-narrow" class="teaser-image" src="static/img/teaser_project_vertical.svg">
+                <p class="is-size-4 is-size-5-mobile" style="text-align: center; max-width: 1000px;margin: 1rem;"><strong>TLDR:</strong> We utilize analytical image gradients to upscale 3DGS renders to improve rendering and reconstruction speed.</p> 
             </div>
         </div>
     </section>
@@ -142,13 +153,13 @@
                 Traditional <a href="https://en.wikipedia.org/wiki/Bicubic_interpolation">bicubic interpolation</a> often inaccurately reconstructs signals due to its reliance on finite difference approximations of gradients, leading to artifacts. Enhancing interpolation by incorporating analytical gradients at each sample point allows for a more precise spline fit. This approach leverages the exact rate of change of the signal, resulting in a reconstruction that closely mirrors the original, effectively capturing subtle variations and reducing interpolation errors.​
             </p>
             <br>
-            <div class="is-centered" style="display: flex; justify-content: center;">
+            <div class="is-centered" id="motivational-example" style="display: flex; justify-content: center;">
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <img style="height: 100%;" src="static/img/spline1d/spline_finite.svg">
+                    <img style="width: 100%;" src="static/img/spline1d/spline_finite.svg">
                     <p style="margin-top:1rem">Finite Differences</p>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <img style="height: 100%;" src="static/img/spline1d/spline_analytical.svg">
+                    <img class="img-exact" style="width: 100%;" src="static/img/spline1d/spline_analytical_dark.svg">
                     <p style="margin-top:1rem">Analytical Gradients</p>
                 </div>
             </div>
@@ -163,19 +174,30 @@
             <p style="margin-bottom:1em;">
                 Bicubic interpolation / upscaling fits a bicubic polynomial through a set of neighboring pixels using finite differences to estimate the color gradients. We replace this gradient estimation with the real analytical gradients of the 2D Gaussians. The exact image gradients allow for a more accurate interpolation and therefore image upscaling. 
             </p>
-            <p>
-                Since the upscaling operation is fully differentiable we can include the upscaling in the reconstruction pipeline and therefore reducing the computational load of the rasterization step and the whole reconstruction process.
+            <p class="has-text-weight-bold">
+                Since the upscaling operation is fully differentiable we can include the upscaling in the  reconstruction pipeline and therefore reducing the computational load of the rasterization step and the whole reconstruction process.
             </p>
             <br>
-            <div class="is-centered ">
-                <img loading="lazy" src="static/img/pipeline.svg">
-            </div>
+            <div class="is-centered fixed-grid is-mobile has-1-cols-mobile" id="motivational-example" >
+                <div class="grid" style="gap:3rem" >
+                    <div class="is flex flex-direction-column align-items-center">
+                        <img class="is-vcentered has-dark-mode" src="static/img/gradient_upscaling.svg">
+                        <p class="cell" style="margin-top:1rem">Gradients are used to upscale the image with spline interpolation to the target resolution.</p>
+                    
+                    </div>
+                    <div class="is flex flex-direction-column align-items-center">
+                        <img class="img-exact has-dark-mode" src="static/img/example_2d.svg">
+                        <p class="cell" style="margin-top:1rem"> A 2D Gaussian Splatting model is fitted to the ground truth image, and upscaling methods are applied to the image rendered at ¼ the resolution of the original.</p>
+               
+                    </div>
+                     </div>
+            </div>  
         </div>
     </section>
 
 
 
-    <section class="section">
+    <section class="section" id="demo">
         <div class="container is-max-desktop is-mobile">
             <div class="is-centered" style="margin-bottom: 3rem;">
                 <h2 class="title is-3">Interactive Web Demo for 2D Images</h2>
@@ -192,7 +214,7 @@
         </div>
     </section>
 
-    <section class="hero teaser is-light">
+    <section class="hero teaser">
         <div class="hero-body">
             <div class="container">
                 <div class="is-centered">
@@ -204,7 +226,7 @@
                 <div id="results-carousel" class="carousel results-carousel">
                     <div class="item">
                         <p>Bicubic</p>
-                        <video poster="./static/videos/thumbnails/upscaline_bicubic.jpg" id="bonsai" autoplay controls muted loop
+                        <video poster="static/videos/thumbnails/upscale_bicubic.jpg" id="bonsai" autoplay controls muted loop
                             playsinline height="100%">
                             <source src="./static/videos/avc1/upscale_bicubic.mp4" type="video/mp4; codecs=avc1.64001E">
                             <!-- <source src="./static/videos/av1/brain_2.mp4" type="video/mp4; codecs=av1"> -->
@@ -212,7 +234,7 @@
                     </div>
                     <div class="item ">
                         <p>Spline (Ours)</p>
-                        <video poster="./static/videos/thumbnails/upscale_spline.jpg" id="bicycle" autoplay controls muted
+                        <video poster="static/videos/thumbnails/upscale_spline.jpg" id="bicycle" autoplay controls muted
                             loop playsinline height="100%">
                             <source src="./static/videos/avc1/upscale_spline.mp4" type="video/mp4; codecs=avc1.64001E">
                             <!-- <source src="./static/videos/av1/kidney_2.mp4" type="video/mp4; codecs=av1"> -->
@@ -220,7 +242,7 @@
                     </div>
                     <div class="item ">
                         <p>NinaSR1</p>
-                        <video poster="./static/videos/thumbnails/upscale_torchsr.jpg" id="garden" autoplay controls muted
+                        <video poster="static/videos/thumbnails/upscale_torchsr.jpg" id="garden" autoplay controls muted
                             loop playsinline height="100%">
                             <source src="./static/videos/avc1/upscale_torchsr.mp4" type="video/mp4; codecs=avc1.64001E">
                             <!-- <source src="./static/videos/av1/whole_body_3.mp4" type="video/mp4; codecs=av1"> -->
@@ -238,13 +260,11 @@
         <div class="container is-max-desktop content">
             <h2 class="title">BibTeX</h2>
             <pre><code>@misc{niedermayr2025upscaling3dgs,
-    title={Lightweight Gradient-Aware Upscaling of 3D Gaussian Splatting Images}, 
-    author={Simon Niedermayr and Christoph Neuhauser Rüdiger Westermann},
-    year={2025},
-    eprint={2503.14171},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV},
-    url={https://arxiv.org/abs/2503.14171}, 
+    title     = {Lightweight Gradient-Aware Upscaling of 3D Gaussian Splatting Images}, 
+    author    = {Simon Niedermayr and Christoph Neuhauser Rüdiger Westermann},
+    year      = {2025},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    year      = {2025},
 }
 </code></pre>
         </div>
@@ -254,7 +274,7 @@
     <footer class="footer">
         <div class="container">
             <div class="content has-text-centered">
-                <a class="icon-link" href="">
+                <a class="icon-link" href="https://arxiv.org/pdf/2503.14171">
                     <i class="fas fa-file-pdf"></i>
                 </a>
                 <a class="icon-link" href="https://github.com/KeKsBoTeR" class="external-link" disabled>
@@ -263,7 +283,7 @@
             </div>
             <div class="columns is-centered">
                 <div class="column is-8">
-                    <div class="content">
+                    <div class="content has-text-centered">
                         <p>
                             Website source code inspired from <a href="https://keunhong.com">Keunhong Park</a>'s <a
                                 href="https://github.com/nerfies/nerfies.github.io">Nerfies website</a>.
@@ -273,6 +293,18 @@
             </div>
         </div>
     </footer>
+    <script>
+        // workaround for ios safari not supporting dark mode in svg
+        const imgs = document.querySelectorAll('img');
+        imgs.forEach(img => {
+            if (img.classList.contains('has-dark-mode')) {
+                if (matchMedia('(prefers-color-scheme: dark)').matches) {
+                    img.src = img.src.replace('.svg', '_dark.svg');
+                }
+            }
+        });
+
+    </script>
 </body>
 
 </html>
