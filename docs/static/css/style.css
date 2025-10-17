@@ -84,6 +84,34 @@ iframe{
     width: 100%;
 }
 
+#webgpu-demo{
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* height: 650px; */
+    aspect-ratio:calc(4/3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+}
+
+#webgpu-demo > div{
+    margin: 1rem;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    backdrop-filter: blur(30px);
+    padding: 1rem;
+    color: white;
+    border-radius: 0.5rem;
+}
+
 @media (max-width: 800px) {
     #teaser-wide {
         display: none;

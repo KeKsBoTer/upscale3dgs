@@ -18,13 +18,13 @@
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
         </div>
-        <div class="navbar-menu">
+        <div class="navbar-menu" id="navbar">
             <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
                 <a class="navbar-item" href="https://www.cs.cit.tum.de/cg/people/niedermayr/">
                     <span class="icon">
@@ -94,12 +94,21 @@
                                     </a>
                                 </span> 
                                 <span class="link-block">
-                                    <a href="#demo"
+                                    <a href="#demo2d"
                                         class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
                                             <i class="fa-solid fa-gamepad"></i>
                                         </span>
                                         <span>2D Demo</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="#demo3d"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-gamepad"></i>
+                                        </span>
+                                        <span>3D Demo</span>
                                     </a>
                                 </span>
                                 <span class="link-block">
@@ -197,7 +206,7 @@
 
 
 
-    <section class="section" id="demo">
+    <section class="section" id="demo2d">
         <div class="container is-max-desktop is-mobile">
             <div class="is-centered" style="margin-bottom: 3rem;">
                 <h2 class="title is-3">Interactive Web Demo for 2D Images</h2>
@@ -209,6 +218,28 @@
                 <iframe loading="lazy" width="100%" height="650px" src="https://keksboter.github.io/gaussian_image/viewer.html?file=gaussian_images/div2k/0841/model_f16.npz"></iframe>
                 <div style="text-align: center;">
                     <a href="https://keksboter.github.io/gaussian_image/"><p>Explore the Demo for the entire DIV2K and Kodak dataset</p></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="section" id="demo3d">
+        <div class="container is-max-desktop is-mobile">
+            <div class="is-centered" style="margin-bottom: 3rem;">
+                <h2 class="title is-3">Web Demo</h2>
+                <p>This is an interactive demo showcasing our 3D Gaussian Splatting Upscaling method in a web browser using WebGPU. The demo was built ontop of <a href="https://github.com/ArthurBrussee/brush">brush</a>. Source code can be found <a href="https://github.com/KeKsBoTeR/brush">here</a>.</p>
+            </div>
+            <div id="webgpu-demo" style="background-image: url('./static/img/brush_demo_screenshot.jpeg')">
+                
+                <iframe id="demo-iframe" style="display: none;" loading="lazy" width="100%" height="100%" _src="https://niedermayr.dev/brush/?url=https://f005.backblazeb2.com/file/brush-splats-bakfiets/garden.ply&focal=1.0&zen=true"></iframe>
+                <div id="confirm-load" style="display: none;">
+                    <p>Loading the demo requires a compatible browser with <a href="https://caniuse.com/webgpu">WebGPU support</a> and may take some time depending on your internet connection.</p>
+                    <button id="load-webgpu" class="button is-dark is-rounded">Load Demo (650MB)</button>
+                </div>
+                <div id="no-webgpu" style="color:white;">
+                    <p>Your browser does not support WebGPU. Please use a <a href="https://caniuse.com/webgpu">compatible browser</a>.</p>
                 </div>
             </div>
         </div>
@@ -304,6 +335,48 @@
             }
         });
 
+        function supportsWebGPU() {
+            if (!navigator.gpu) {
+                return false;
+            }
+            return true;
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+
+            const no_webgpu = document.getElementById('no-webgpu');
+            if (supportsWebGPU()) {
+                no_webgpu.style.display = 'none';
+                const confirm_load = document.getElementById('confirm-load');
+                confirm_load.style.display = "flex";
+                const load_button = document.getElementById('load-webgpu');
+                load_button.addEventListener('click', () => {
+                    const demo_iframe = document.getElementById('demo-iframe');
+                    demo_iframe.style.display = "flex";
+                    demo_iframe.src = demo_iframe.getAttribute('_src');
+                    confirm_load.style.display = 'none';
+                });
+            }
+        });
     </script>
 </body>
 
